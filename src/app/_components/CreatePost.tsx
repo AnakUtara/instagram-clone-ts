@@ -1,10 +1,11 @@
 import { BiHash, BiImage } from "react-icons/bi";
+import ModalProvider from "./provider/ModalProvider";
 
 type Props = {};
 export default function CreateModal({}: Props) {
   return (
-    <dialog id="createPost" className="modal">
-      <center className="modal-box max-w-[720px]">
+    <ModalProvider id="create">
+      <center>
         <h3 className="font-bold text-xl mb-5">Create new post</h3>
         <form className="w-full flex flex-col gap-8">
           <label className="form-control w-full" htmlFor="hashtags">
@@ -54,12 +55,11 @@ export default function CreateModal({}: Props) {
               </span>
             </div>
           </label>
-          <button className="btn btn-info btn-lg btn-block">Create Post</button>
+          <button className="btn btn-primary btn-lg btn-block text-white">
+            Create Post
+          </button>
         </form>
       </center>
-      <form method="dialog" className="modal-backdrop">
-        <button>close</button>
-      </form>
-    </dialog>
+    </ModalProvider>
   );
 }

@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import EditProfile from "@/app/[username]/_components/EditProfile";
 
 type Props = {};
 export default function ProfileDetails({}: Props) {
@@ -11,6 +13,7 @@ export default function ProfileDetails({}: Props) {
   ];
   return (
     <>
+      <EditProfile />
       <div className="flex w-full justify-center items-center md:gap-10 gap-5 p-3 md:pt-0 ">
         <Image
           width={128}
@@ -23,7 +26,16 @@ export default function ProfileDetails({}: Props) {
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h5 className="text-lg">{"username"}</h5>
             <div className="flex gap-1">
-              <button className="btn btn-xs sm:btn-sm">
+              <button
+                className="btn btn-xs sm:btn-sm"
+                onClick={() => {
+                  if (document) {
+                    (
+                      document.getElementById("edit-profile") as HTMLFormElement
+                    ).showModal();
+                  }
+                }}
+              >
                 {true ? "Edit profile" : "Follow"}
               </button>
               <button className="btn btn-xs sm:btn-sm">

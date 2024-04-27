@@ -1,8 +1,8 @@
 "use client";
 import Logo from "./Logo";
 import Link from "next/link";
-import { BiHome, BiLogoInstagram, BiSolidHome } from "react-icons/bi";
 import clsx from "clsx";
+import { BiHome, BiLogoInstagram, BiSolidHome } from "react-icons/bi";
 import { usePathname } from "next/navigation";
 import { FaRegSquarePlus, FaPowerOff } from "react-icons/fa6";
 
@@ -40,7 +40,11 @@ export default function MainNav({}: Props) {
         <button
           className="flex items-center sm:gap-4 hover:bg-gray-300 sm:w-full p-2 rounded-lg"
           onClick={() => {
-            document.getElementById("createPost")?.showModal();
+            if (document) {
+              (
+                document.getElementById("create") as HTMLFormElement
+              ).showModal();
+            }
           }}
         >
           <FaRegSquarePlus className="size-8" />
