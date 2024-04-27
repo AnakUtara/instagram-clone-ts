@@ -5,17 +5,16 @@ import { BiHome, BiLogoInstagram, BiSolidHome } from "react-icons/bi";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { FaRegSquarePlus, FaPowerOff } from "react-icons/fa6";
-import Image from "next/image";
 
 type Props = {};
 export default function MainNav({}: Props) {
   const pathname = usePathname();
   const hrefs = ["/", "/username"];
   return (
-    <nav className="sticky p-2 sm:p-2 xl:p-5 bg-white bottom-0 flex justify-between items-center w-full order-last sm:order-first sm:flex-col sm:items-start sm:w-fit xl:w-[270px] sm:top-0 sm:left-0 border-2">
+    <nav className="sticky sm:h-screen p-2 sm:p-2 xl:p-5 bg-white bottom-0 flex justify-between items-center w-full order-last sm:order-first sm:flex-col sm:items-start sm:w-fit xl:min-w-[270px] sm:top-0 sm:left-0 border-2">
       <div id="logo">
         <div className="hidden xl:block">
-          <Logo />
+          <Logo className={"text-3xl"} />
         </div>
         <BiLogoInstagram className="size-11 hidden sm:block xl:hidden" />
       </div>
@@ -92,7 +91,7 @@ export default function MainNav({}: Props) {
           <span
             className={clsx(
               "text-lg hidden xl:block",
-              hrefs[0] === pathname && "font-bold",
+              hrefs[1] === pathname && "font-bold",
             )}
           >
             Profile
