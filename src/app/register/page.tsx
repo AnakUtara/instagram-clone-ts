@@ -1,6 +1,6 @@
-import FormWrapper from "../_components/form/FormWrapper";
+import RegistrationForm from "./_components/RegistrationForm";
 
 type Props = {};
 export default function Register({}: Props) {
-  return <FormWrapper isLogin={false}>Register</FormWrapper>;
+  return <RegistrationForm />;
 }

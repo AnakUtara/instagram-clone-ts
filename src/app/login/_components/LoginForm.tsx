@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import FormWrapper from "@/app/_components/form/FormWrapper";
 
 type Props = {};
-type auth = { username: string; password: string };
+type Login = { username: string; password: string };
 export default function LoginForm({}: Props) {
-  const init: auth = { username: "", password: "" };
+  const init: Login = { username: "", password: "" };
   const formik = useFormik({
     initialValues: init,
     validationSchema: Yup.object().shape({
@@ -21,7 +21,7 @@ export default function LoginForm({}: Props) {
       <form onSubmit={formik.handleSubmit} className="flex flex-col gap-5">
         <label className="form-control w-full max-w-xs" htmlFor="username">
           <input
-            className="input input-bordered input-secondary input-md"
+            className="input input-bordered input-md"
             placeholder="Username or email"
             id="username"
             name="username"
@@ -32,7 +32,7 @@ export default function LoginForm({}: Props) {
         <label className="form-control w-full max-w-xs" htmlFor="password">
           <input
             type="password"
-            className="input input-bordered input-secondary input-md"
+            className="input input-bordered input-md"
             placeholder="Password"
             id="password"
             name="password"
@@ -41,7 +41,9 @@ export default function LoginForm({}: Props) {
           />
         </label>
         <button
-          className={"btn btn-block btn-secondary text-white"}
+          className={
+            "btn btn-block btn-primary text-white disabled:bg-secondary disabled:text-white"
+          }
           disabled={isFormEmpty ? false : true}
         >
           Sign in

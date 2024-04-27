@@ -15,7 +15,7 @@ export default function FormWrapper({ children, isLogin = true }: Props) {
           <center className="text-sm">
             <p>{isLogin ? "Don't have an account?" : "Have an account?"}</p>
             <Link
-              className="font-bold ml-2 text-sm text-secondary"
+              className="font-bold ml-2 text-sm text-primary"
               href={isLogin ? "/register" : "/login"}
             >
               {isLogin ? "Register" : "Login"}

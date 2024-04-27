@@ -5,9 +5,8 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 type Props = { children: React.ReactNode };
-export default function ResponsiveNav({ children }: Props) {
+export default function ResponsiveNavWrapper({ children }: Props) {
   const pathname: string = usePathname();
-  console.log(pathname);
   const isAuthPath: boolean = pathname === "/login" || pathname === "/register";
   const isUserPath: boolean = pathname === "/" || pathname === "/username";
   return (
@@ -16,7 +15,7 @@ export default function ResponsiveNav({ children }: Props) {
         isAuthPath ? "grid place-items-center" : "flex flex-col sm:flex-row",
       )}
     >
-      {isUserPath && <MobileHeader />}
+      {isUserPath && <MobileHeader isHome={pathname === "/" ? true : false} />}
       {children}
       {isUserPath && <MainNav />}
     </main>

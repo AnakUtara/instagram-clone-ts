@@ -11,12 +11,12 @@ export default function MainNav({}: Props) {
   const pathname = usePathname();
   const hrefs = ["/", "/username"];
   return (
-    <nav className="sticky sm:h-screen p-2 sm:p-2 xl:p-5 bg-white bottom-0 flex justify-between items-center w-full order-last sm:order-first sm:flex-col sm:items-start sm:w-fit xl:min-w-[270px] sm:top-0 sm:left-0 border-2">
+    <nav className="sticky sm:h-screen p-2 sm:py-5 xl:p-5 bg-white bottom-0 flex justify-between items-center w-full order-last sm:order-first sm:flex-col sm:items-start sm:w-fit xl:min-w-[270px] sm:top-0 sm:left-0 border-2">
       <div id="logo">
-        <div className="hidden xl:block">
-          <Logo className={"text-3xl"} />
-        </div>
-        <BiLogoInstagram className="size-11 hidden sm:block xl:hidden" />
+        <Link href={"/"}>
+          <Logo className={"hidden xl:block text-3xl"} />
+          <BiLogoInstagram className="size-11 hidden sm:block xl:hidden" />
+        </Link>
       </div>
       <div className="flex justify-between sm:justify-normal sm:flex-col sm:gap-5 w-full">
         <Link
@@ -40,7 +40,7 @@ export default function MainNav({}: Props) {
         <button
           className="flex items-center sm:gap-4 hover:bg-gray-300 sm:w-full p-2 rounded-lg"
           onClick={() => {
-            //   document.getElementById("createPost").showModal();
+            document.getElementById("createPost")?.showModal();
           }}
         >
           <FaRegSquarePlus className="size-8" />
@@ -100,10 +100,10 @@ export default function MainNav({}: Props) {
         </Link>
       </div>
       <Link
-        className="flex items-center sm:gap-4 hover:bg-gray-300 sm:w-full p-2 rounded-lg"
+        className="sm:flex items-center hidden sm:gap-4 hover:bg-gray-300 sm:w-full p-2 rounded-lg"
         href={"/login"}
       >
-        <FaPowerOff className="hidden sm:block size-7" />
+        <FaPowerOff className="size-7" />
         <span className={clsx("text-lg hidden xl:block")}>Log Out</span>
       </Link>
     </nav>
